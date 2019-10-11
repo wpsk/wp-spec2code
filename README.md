@@ -49,3 +49,6 @@ Why not? DRY - Don't repeat yourself
 ### Autoloader wiring 
 
 ### Actions and filters
+
+## Future Improvements
+- create config file from existing WordPress installation
