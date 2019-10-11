@@ -6,6 +6,15 @@ Tool for generating common WordPress code from structured spec file.
 
 Why not? DRY - Don't repeat yourself
 
+## Minimum requirements
+Requirements are defined by the requirements of default adapters.
+
+- PHP 7.0
+- WordPress 4.8
+- [Composer](https://getcomposer.org/download/)
+
+Do you need to work with earlier versions of PHP or WordPress? It is possible to implement adapters with lower requirements.
+
 ## How does it work?
 - add wp-spec2code as a composer dependency
 - create spec file

@@ -2,6 +2,11 @@
 
 require_once 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
+$test = new \wpsk\tools\spec2code\Test();
+$test->index();
+
+$file_list = array();
+
 $file = new Nette\PhpGenerator\PhpFile;
 $file->addComment('This file is auto-generated.');
 
