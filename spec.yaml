@@ -1,0 +1,31 @@
+target_dir: s2c
+namespace: Webikon\SecretProject
+i18n_domain: secret-project
+post_types:
+  book:
+    label: Book
+    menu_icon: dashicons-book-alt
+taxonomies:
+  genre:
+    label: Genre
+post_meta:
+  cover:
+    type: image
+    post_type: book
+    title: Book cover
+  isbn:
+    type: text
+    post_type: book
+    title: ISBN code
+tax_meta:
+  color:
+    type: color
+    taxonomy: book
+    title: Color
+  icon:
+    type: image
+    taxonomy: book
+    title: Icon
+drivers:
+  post_types: wordpress
+  taxonomies: wordpress
