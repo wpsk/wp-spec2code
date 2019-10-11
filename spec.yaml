@@ -8,6 +8,8 @@ post_types:
   book:
     label: Book
     menu_icon: dashicons-book-alt
+  car:
+    label: Cars
 taxonomies:
   genre:
     label: Genre

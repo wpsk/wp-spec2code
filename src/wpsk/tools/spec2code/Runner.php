@@ -5,13 +5,46 @@ namespace wpsk\tools\spec2code;
 use Nadar\PhpComposerReader\Autoload;
 use Nadar\PhpComposerReader\AutoloadSection;
 use Nadar\PhpComposerReader\ComposerReader;
-use Nadar\PhpComposerReader\Package;
-use Nadar\PhpComposerReader\RequireSection;
+use Nette\PhpGenerator\PhpFile;
+use Nette\PhpGenerator\PsrPrinter;
 use wpsk\tools\spec2code\factories\CommonAdapterFactory;
 use wpsk\tools\spec2code\factories\ConfigFileParserFactory;
 
 class Runner
 {
+
+    private function createBootstrapClass($classList, $targetDir, $namespace)
+    {
+        $file = new PhpFile();
+        $file->addComment('This file is auto-generated.');
+
+        $namespace = $file->addNamespace($namespace);
+        $class = $namespace->addClass('Bootstrap');
+        $class->addMethod('inject')
+            ->setStatic(true)
+            ->setBody('add_action("init", array($fqClassName, "init"));')
+            ->addParameter('fqClassName');
+
+        $classes_init_code = '';
+        foreach ($classList as $className) {
+            $classes_init_code .= 'self::inject("' . $className . '");';
+        }
+
+        $class->addMethod('boot')
+            ->setStatic(true)
+            ->setBody($classes_init_code);
+
+        $target_dir = $targetDir . DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR;
+        @mkdir($target_dir, 0777, true);
+        $target_file = $target_dir . 'Bootstrap.php';
+
+        $printer = new PsrPrinter();
+        $file_content = $printer->printFile($file);
+
+        file_put_contents($target_file, $file_content);
+
+    }
+
     public function run($config_file_path)
     {
         try {
@@ -19,13 +52,16 @@ class Runner
             $config_file_parser = $config_factory->get_config_file_parser($config_file_path);
             $config_file_parser->parse($config_file_path);
 
-            $factory = CommonAdapterFactory::get_instance($config_file_parser);
-
             $targetDir = $config_file_parser->getTargetDir();
             @mkdir($targetDir);
 
+            $factory = CommonAdapterFactory::get_instance($config_file_parser);
+
+            $generated_classes = array();
+
             //  TODO: create adapters and run the code generation
-            $factory->get_post_types_adapter()->generate_post_type_files();
+            $post_type_classes = $factory->get_post_types_adapter()->generate_post_type_files();
+            $generated_classes = array_merge($generated_classes, $post_type_classes);
 
             //  generate composer.json
             $composerFile = $targetDir . DIRECTORY_SEPARATOR . 'composer.json';
@@ -48,6 +84,9 @@ class Runner
 
             //  run composer install
             $reader->runCommand('install');
+
+            //  create bootstrap class
+            $this->createBootstrapClass($generated_classes, $targetDir, 'Todo');
 
         } catch (\Exception $e) {
             error_log($e->getMessage());
