@@ -3,8 +3,7 @@
 
 namespace wpsk\tools\spec2code\factories;
 
-
-use wpsk\tools\spec2code\YamlConfigFileParser;
+use wpsk\tools\spec2code\parsers\YamlConfigFileParser;
 
 class ConfigFileParserFactory
 {

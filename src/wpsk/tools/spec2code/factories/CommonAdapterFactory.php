@@ -5,7 +5,7 @@ namespace wpsk\tools\spec2code\factories;
 
 
 use wpsk\tools\spec2code\adapters\ExtendedCptsAdapter;
-use wpsk\tools\spec2code\ConfigFileParserInterface;
+use wpsk\tools\spec2code\parsers\ConfigFileParserInterface;
 
 class CommonAdapterFactory implements AdapterFactoryInterface
 {

@@ -1,12 +1,13 @@
 <?php
 
-namespace wpsk\tools\spec2code;
+namespace wpsk\tools\spec2code\parsers;
 
 use Symfony\Component\Yaml\Yaml;
 use wpsk\tools\spec2code\parsers\AbstractConfigFileParser;
 
 class YamlConfigFileParser extends AbstractConfigFileParser
 {
+
     public function parse($filePath) {
 
         $parsedFile = Yaml::parseFile($filePath);
@@ -17,6 +18,7 @@ class YamlConfigFileParser extends AbstractConfigFileParser
         $this->parsed_data = $parsedFile;
         return true;
     }
+
 
 }
 

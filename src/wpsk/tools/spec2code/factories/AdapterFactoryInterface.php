@@ -1,9 +1,8 @@
 <?php
 
-
 namespace wpsk\tools\spec2code\factories;
 
-use wpsk\tools\spec2code\ConfigFileParserInterface;
+use wpsk\tools\spec2code\parsers\ConfigFileParserInterface;
 
 interface AdapterFactoryInterface
 {
