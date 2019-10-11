@@ -9,6 +9,7 @@
         "symfony/yaml": "^4.3",
         "wp-cli/wp-cli": "^2.3",
         "johnbillion/extended-cpts": "^4.3",
-        "nette/php-generator": "^3.2"
+        "nette/php-generator": "^3.2",
+        "nadar/php-composer-reader": "^1.3"
     }
 }

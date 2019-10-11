@@ -31,8 +31,9 @@ class ExtendedCptsPostTypeAdapter extends AbstractConfigurableAdapter implements
             $function = new GlobalFunction('init');
             $function->setBody('$cpt = new ' . $className . '(); $cpt->init();');
 
-            $target_dir = $this->config->getTargetDir();
-            $target_file = $target_dir . DIRECTORY_SEPARATOR . $className . '.php';
+            $target_dir = $this->config->getTargetDir() . DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR . 'cpt' . DIRECTORY_SEPARATOR;
+            @mkdir($target_dir, 0777, true);
+            $target_file = $target_dir . $className . '.php';
             $file_content = $printer->printFile($file);
 
             $file_content .= $function;
