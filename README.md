@@ -61,3 +61,4 @@ Do you need to work with earlier versions of PHP or WordPress? It is possible to
 
 ## Future Improvements
 - create config file from existing WordPress installation
+- allow adapters to register themselves with factories

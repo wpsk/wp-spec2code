@@ -3,8 +3,7 @@
 
 namespace wpsk\tools\spec2code\factories;
 
-
-use wpsk\tools\spec2code\adapters\ExtendedCptsAdapter;
+use wpsk\tools\spec2code\adapters\ExtendedCptsPostTypeAdapter;
 use wpsk\tools\spec2code\parsers\ConfigFileParserInterface;
 
 class CommonAdapterFactory implements AdapterFactoryInterface
@@ -30,13 +29,13 @@ class CommonAdapterFactory implements AdapterFactoryInterface
     public function get_post_types_adapter()
     {
         // TODO: create adapter based on the adapters defined in the config
-        return new ExtendedCptsAdapter($this->config);
+        return new ExtendedCptsPostTypeAdapter($this->config);
     }
 
     public function get_post_meta_fields_adapter()
     {
         // TODO: create adapter based on the adapters defined in the config
-        return new ExtendedCptsAdapter($this->config);
+        return new ExtendedCptsPostTypeAdapter($this->config);
     }
 
     public function get_tax_meta_fields_adapter()

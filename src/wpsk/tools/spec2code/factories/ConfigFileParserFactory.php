@@ -3,11 +3,12 @@
 
 namespace wpsk\tools\spec2code\factories;
 
+use wpsk\tools\spec2code\parsers\ConfigFileParserInterface;
 use wpsk\tools\spec2code\parsers\YamlConfigFileParser;
 
 class ConfigFileParserFactory
 {
-    public function get_config_file_parser($filePath)
+    public function get_config_file_parser($filePath): ConfigFileParserInterface
     {
         $fileExt = $this->getFileExt($filePath);
         if ($fileExt === 'yaml') {

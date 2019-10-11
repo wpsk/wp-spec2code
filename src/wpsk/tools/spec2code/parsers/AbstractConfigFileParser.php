@@ -2,8 +2,6 @@
 
 namespace wpsk\tools\spec2code\parsers;
 
-use wpsk\tools\spec2code\parsers\ConfigFileParserInterface;
-
 abstract class AbstractConfigFileParser implements ConfigFileParserInterface
 {
     protected $parsed_data;
@@ -24,6 +22,16 @@ abstract class AbstractConfigFileParser implements ConfigFileParserInterface
         $data = $this->checkKey($key); 
 
         return $data;
+    }
+
+    public function getNamespace()
+    {
+        return $this->checkKey('namespace');
+    }
+
+    public function getTargetDir()
+    {
+        return $this->checkKey('target_dir');
     }
 
     private function checkKey($key) {
