@@ -8,6 +8,7 @@ abstract class AbstractConfigFileParser implements ConfigFileParserInterface
 
     public function getCustomPostTypes()
     {
+
         $key = 'post_types';
 
         $data = $this->checkKey($key); 
@@ -35,7 +36,6 @@ abstract class AbstractConfigFileParser implements ConfigFileParserInterface
     }
 
     private function checkKey($key) {
-
 
         if( isset( $this->parsed_data[$key] ) && !empty( $this->parsed_data[$key] ) ) {
 

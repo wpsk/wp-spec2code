@@ -14,6 +14,7 @@ class YamlConfigFileParser extends AbstractConfigFileParser
         }
 
         $this->parsed_data = $parsedFile;
+
         return true;
     }
 
