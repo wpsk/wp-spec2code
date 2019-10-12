@@ -6,7 +6,7 @@
     "license": "GPL-2.0-or-later",
     "autoload": {
         "psr-0": {
-            "wpsk\\tools\\spec2code\\": "src/"
+            "webikon\\tools\\spec2code\\": "src/"
         }
     },
     "require": {

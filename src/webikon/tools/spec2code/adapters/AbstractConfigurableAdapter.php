@@ -1,9 +1,9 @@
 <?php
 
 
-namespace wpsk\tools\spec2code\adapters;
+namespace webikon\tools\spec2code\adapters;
 
-use wpsk\tools\spec2code\parsers\ConfigFileParserInterface;
+use webikon\tools\spec2code\parsers\ConfigFileParserInterface;
 
 abstract class AbstractConfigurableAdapter
 {

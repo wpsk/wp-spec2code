@@ -1,7 +1,7 @@
 <?php
 
 
-namespace wpsk\tools\spec2code;
+namespace webikon\tools\spec2code;
 
 /**
  * Wrapper class that prepares composer defined dependencies. Notice that it does not use any of the classes defined

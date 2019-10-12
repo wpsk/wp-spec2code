@@ -1,6 +1,6 @@
 <?php
 
-namespace wpsk\tools\spec2code\parsers;
+namespace webikon\tools\spec2code\parsers;
 
 abstract class AbstractConfigFileParser implements ConfigFileParserInterface
 {

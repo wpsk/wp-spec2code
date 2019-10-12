@@ -1,14 +1,14 @@
 <?php
 
-namespace wpsk\tools\spec2code;
+namespace webikon\tools\spec2code;
 
 use Nadar\PhpComposerReader\Autoload;
 use Nadar\PhpComposerReader\AutoloadSection;
 use Nadar\PhpComposerReader\ComposerReader;
 use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\PsrPrinter;
-use wpsk\tools\spec2code\factories\CommonAdapterFactory;
-use wpsk\tools\spec2code\factories\ConfigFileParserFactory;
+use webikon\tools\spec2code\factories\CommonAdapterFactory;
+use webikon\tools\spec2code\factories\ConfigFileParserFactory;
 
 class Runner
 {
