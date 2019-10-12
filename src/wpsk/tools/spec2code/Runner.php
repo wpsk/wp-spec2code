@@ -48,6 +48,7 @@ class Runner
     public function run($config_file_path)
     {
         try {
+
             $config_factory = new ConfigFileParserFactory();
             $config_file_parser = $config_factory->get_config_file_parser($config_file_path);
             $config_file_parser->parse($config_file_path);
