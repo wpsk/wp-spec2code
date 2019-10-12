@@ -19,7 +19,7 @@ Do you need to work with earlier versions of PHP or WordPress? It is possible to
 - add wp-spec2code as a composer dependency
 - create spec file
 - run wp s2c gen
-- include s2c/autoload.php
+- include s2c/vendor/autoload.php
 - init by Bootstrap::boot()
 - carry on with the rest of your project
 
@@ -64,3 +64,7 @@ Do you need to work with earlier versions of PHP or WordPress? It is possible to
 ## Future Improvements
 - create config file from existing WordPress installation
 - allow adapters to register themselves with factories
+- options for inclusion of third party composer dependencies required by adapters
+  - add as a part of generated composer.json file in target folder
+  - add to an existing compose.json file (in the root of your context or defined file as script argument)
+  - print the required dependencies to the console (or composer require commands)
