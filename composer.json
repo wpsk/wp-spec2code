@@ -1,7 +1,7 @@
 {
     "name": "webikon/wp-spec2code",
     "description": "Tool for generating common WordPress code from structured spec file.",
-    "version": "0.0.3-dev",
+    "version": "0.0.4-dev",
     "homepage": "https://github.com/wpsk/wp-spec2code",
     "license": "GPL-2.0-or-later",
     "autoload": {
@@ -10,9 +10,7 @@
         }
     },
     "require": {
-        "php": "^7.0"
-    },
-    "require-dev": {
+        "php": "^7.0",
         "symfony/yaml": "^4.3",
         "wp-cli/wp-cli": "^2.3",
         "nette/php-generator": "^3.2",
