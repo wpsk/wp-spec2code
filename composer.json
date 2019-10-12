@@ -1,4 +1,7 @@
 {
+    "name": "webikon/wp-spec2code",
+    "description": "TODO",
+    "homepage": "https://github.com/wpsk/wp-spec2code",
     "license": "GPL-2.0-or-later",
     "autoload": {
         "psr-0": {
