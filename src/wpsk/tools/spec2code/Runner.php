@@ -87,7 +87,7 @@ class Runner
             $reader->runCommand('install');
 
             //  create bootstrap class
-            $this->createBootstrapClass($generated_classes, $targetDir, 'Todo');
+            $this->createBootstrapClass($generated_classes, $targetDir, $config_file_parser->getNamespace());
 
         } catch (\Exception $e) {
             error_log($e->getMessage());

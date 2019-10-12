@@ -1,6 +1,6 @@
 {
     "name": "webikon/wp-spec2code",
-    "description": "TODO",
+    "description": "Tool for generating common WordPress code from structured spec file.",
     "homepage": "https://github.com/wpsk/wp-spec2code",
     "license": "GPL-2.0-or-later",
     "autoload": {
