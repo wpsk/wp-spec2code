@@ -12,11 +12,12 @@ class RunnerWrapper
 {
     /**
      * This may run in two ways:
-     * - in the s2c project itself (doesn't require to run composer installer in subfolder)
-     * - as a library (requires to run composer installer in subfolder)
+     * - in the s2c project itself
+     * - as a library
+     *
      * @return string
      */
-    private function maybeInstallComposerDependencies()
+    private function findAutoloaderFile()
     {
         $s2c_deps_subfolder = implode(DIRECTORY_SEPARATOR, array(
             'vendor',
@@ -27,10 +28,6 @@ class RunnerWrapper
         $autoloader_parts = array(getcwd());
 
         if (file_exists($s2c_deps_subfolder)) {
-            //  install composer dependencies
-            //  composer won't do this for you
-            //  https://getcomposer.org/doc/faqs/why-can%27t-composer-load-repositories-recursively.md
-            exec('cd ' . $s2c_deps_subfolder . ' && composer install');
             array_push($autoloader_parts, $s2c_deps_subfolder);
         }
 
@@ -44,7 +41,7 @@ class RunnerWrapper
 
     public function run($config_file_path)
     {
-        $autloloader_file = $this->maybeInstallComposerDependencies();
+        $autloloader_file = $this->findAutoloaderFile();
         if (!file_exists($autloloader_file)) {
             throw new \Exception('Main autoloader file does not exist');
         }
