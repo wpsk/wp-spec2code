@@ -27,7 +27,7 @@ class Runner
 
         $classes_init_code = '';
         foreach ($classList as $className) {
-            $classes_init_code .= 'self::inject("' . $className . '");';
+            $classes_init_code .= 'self::inject("' . $className . '");' . PHP_EOL;
         }
 
         $class->addMethod('boot')
