@@ -10,42 +10,18 @@ namespace webikon\tools\spec2code;
  */
 class RunnerWrapper
 {
-    /**
-     * This may run in two ways:
-     * - in the s2c project itself
-     * - as a library
-     *
-     * @return string
-     */
-    private function findAutoloaderFile()
-    {
-        $s2c_deps_subfolder = implode(DIRECTORY_SEPARATOR, array(
-            'vendor',
-            'webikon',
-            'wp-spec2code'
-        ));
-
-        $autoloader_parts = array(getcwd());
-
-        if (file_exists($s2c_deps_subfolder)) {
-            array_push($autoloader_parts, $s2c_deps_subfolder);
-        }
-
-        array_push($autoloader_parts, 'vendor');
-        array_push($autoloader_parts, 'autoload.php');
-
-        //  try to load the autoloader file created by composer in our package
-        $autloloader_file = implode(DIRECTORY_SEPARATOR, $autoloader_parts);
-        return $autloloader_file;
-    }
-
     public function run($config_file_path)
     {
-        $autloloader_file = $this->findAutoloaderFile();
-        if (!file_exists($autloloader_file)) {
-            throw new \Exception('Main autoloader file does not exist');
-        }
+        //  try to load the autoloader file
+        $autloloader_file = implode(DIRECTORY_SEPARATOR, array(
+            getcwd(),
+            'vendor',
+            'autoload.php'
+        ));
 
+        if (!file_exists($autloloader_file)) {
+            throw new \Exception('Main autoloader file does not exist: ' . $autloloader_file);
+        }
         require_once $autloloader_file;
 
         //  run the actual runner that uses installed dependencies
